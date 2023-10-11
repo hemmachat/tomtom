@@ -12,9 +12,8 @@ describe('Tomtom Places E2E Tests', () => {
             expect(res).toBeInstanceOf(Promise)
         })
 
-        it('can fetch from the autocomplete api', async () => {
+        it ('can fetch from the autocomplete api', async () => {
             const res = await getAutoCompleteDetails('Charlotte Street')
-            // console.log('res', res);
             const firstRes = res[0];
             expect(firstRes).toHaveProperty('placeId')
             expect(firstRes).toHaveProperty('streetNumber')
@@ -33,8 +32,9 @@ describe('Tomtom Places E2E Tests', () => {
             expect(res).toStrictEqual([])
         })
 
-        it('handles error', async () => {
-            expect(getPlaceAutocomplete('')).rejects.toThrow()
+        // I changed a bit of code here to immediately throw our own error when the query is empty instead of making the API call
+        it('handles empty query', async () => {
+            await expect(getPlaceAutocomplete('')).rejects.toThrow(new Error('Cannot search with an empty query.'));
         })
     })
 
