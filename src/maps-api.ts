@@ -48,7 +48,7 @@ export async function getPlaceAutocomplete(query: string): Promise<AddressResult
         });     
     } catch (error: any) {
         console.log('error', error);
-        // capture axios error from the API call and put some loggings here
+        // TODO: capture axios error from the API call and put some loggings mechanism here
         throw error;
     }
 }
