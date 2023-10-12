@@ -3,6 +3,10 @@ import { apiKey, baseURL, countrySet, ext, fuzzySearch, itemsLimit, versionNumbe
 import { SearchResult } from './types/search';
 import { AddressResult } from './types/address';
 
+const getFuzzySearchUrl = (query: string) => {
+    return `${baseURL}/search/${versionNumber}/${fuzzySearch}/${encodeURIComponent(query)}.${ext}`;
+};
+
 const mapSearchAddressResult = (result: SearchResult): AddressResult => {
     return {
         placeId: result.id,
@@ -29,7 +33,7 @@ export async function getPlaceAutocomplete(query: string): Promise<AddressResult
         throw new Error('Cannot search with an empty query.');
     }
 
-    const url = `${baseURL}/search/${versionNumber}/${fuzzySearch}/${encodeURIComponent(query)}.${ext}`;
+    const url = getFuzzySearchUrl(query);
     const params = {
         key: apiKey,
         limit: itemsLimit,
