@@ -1,6 +1,9 @@
 name: Build Dev Environment
 on: [push, workflow_dispatch]
 
+env:
+  TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -8,7 +11,8 @@ jobs:
       - name: Create .env file
         run: |
           touch .env
-          echo TOMTOM_API_KEY=${{ secrets.TOMTOM_API_KEY }} >> .env   
+          echo TOMTOM_API_KEY=$TOMTOM_API_KEY >> .env   
+          cat .env
 
       - uses: actions/checkout@v4
       - name: Use Node.js
