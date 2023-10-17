@@ -2,4 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
+
+# running the test here might not be a good idea and it could take too much time to wait
+# so we might need to move it to the build pipeline only to run the test
 yarn test
