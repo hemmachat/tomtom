@@ -12,7 +12,6 @@ jobs:
         run: |
           touch .env
           echo TOMTOM_API_KEY=$TOMTOM_API_KEY >> .env   
-          cat .env
 
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -23,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile    
 
-      - name: Run test
+      - name: Run all test
         run: yarn test
 
       - uses: actions/checkout@master

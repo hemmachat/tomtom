@@ -3,6 +3,7 @@ import { getPlaceAutocomplete } from '../src/maps-api';
 import { getAutoCompleteDetails } from '../src';
 
 // These are end-to-end tests and need an api key
+// TODO: these end-to-end testing is arguable not good to run as the automated test as it is the external call
 describe('Tomtom Places E2E Tests', () => {
   describe('getAutoCompleteDetails', () => {
     it('returns a promise', () => {
