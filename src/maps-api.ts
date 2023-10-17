@@ -45,8 +45,8 @@ export async function getPlaceAutocomplete(query: string): Promise<AddressResult
     
         return autocomplete.data?.results?.map((result: SearchResult) => {
             return mapSearchAddressResult(result);
-        });     
-    } catch (error: any) {
+        });           
+    } catch (error: unknown) {
         console.log('error', error);
         // TODO: capture axios error from the API call and put some loggings mechanism here
         throw error;
