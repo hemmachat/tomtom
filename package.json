@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src",
     "test": "jest",
+    "lint": "eslint src",
     "prepare": "husky install"
   },
   "author": "",
