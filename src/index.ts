@@ -1,5 +1,5 @@
 import { getPlaceAutocomplete } from './maps-api';
-import { AddressResult } from './address';
+import { AddressResult } from './types/address';
 
 /**
  * Perform an address search

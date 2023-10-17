@@ -9,7 +9,7 @@ import {
   versionNumber,
 } from './config';
 import { SearchResult } from './types/search';
-import { AddressResult } from './address';
+import { AddressResult } from './types/address';
 
 const getFuzzySearchUrl = (query: string) => {
   return `${baseURL}/search/${versionNumber}/${fuzzySearch}/${encodeURIComponent(
